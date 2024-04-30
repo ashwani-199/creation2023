@@ -1,0 +1,24 @@
+{% extends "techno/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<br>
+<div class="text-center">
+  <h1>Image Resize</h1>
+</div>
+<div class="container py-5 col-lg-6 mx-auto">
+  <form method="post" class="d-block" id="uploadForm" enctype="multipart/form-data">
+    <h5 class="mb-4">Select Width, Height and Drop an image below or browse files.</h5>
+    {% csrf_token %}
+    <label for="width">Width:</label><br>
+    <input type="text" id="width" name="width"><br>
+    <label for="height">Height:</label><br>
+    <input type="text" id="height" name="height"><br><br>
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary mt-3"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Upload
+      Image</button>
+  </form>
+</div>
+
+{% endblock %}
